@@ -39,6 +39,7 @@ A website that helps people choose what (restaurant/cafes) to eat in and review 
 *   can browse restaurants 
 *   can review restaurants (comment on them and rating them and can upload pictures to show their experience)
 *   can become critics when they review many restaurants and become verified on the website
+*   can share restaurants
 
 ---
 
@@ -48,7 +49,8 @@ A website that helps people choose what (restaurant/cafes) to eat in and review 
 *   Get verified they have past experience to reviewing restaurants 
 *   login
 *   Comments on restaurants rate them and add pictures of their experience (update/delete)
-*    can announce  the opening of new restaurants as an Add
+*   can announce  the opening of new restaurants as an Add
+*   can share restaurants
 
 ---
 
@@ -57,6 +59,7 @@ A website that helps people choose what (restaurant/cafes) to eat in and review 
 *   Register
 *   Browse the website 
 *   Check restaurant reviews and ratings 
+*   can share restaurants
 
 ---
 
