@@ -11,7 +11,7 @@ def register_user(request : HttpRequest):
 
         new_user = User.objects.create_user(username=request.POST["username"], email= request.POST["email"], first_name=request.POST["first_name"], last_name=request.POST["last_name"], password=request.POST["password"])
         new_user.save()
-
+        return redirect ("Wte_app:HomePage")
     return render(request, "accounts/register.html")
 
 
@@ -22,7 +22,7 @@ def login_user(request : HttpRequest):
         
         if user:
             login(request, user)
-            return redirect("blogApp:list_posts")
+            return redirect("Wte_app:HomePage")
         else:
             msg = "User Not Found , check your credentials"
 
@@ -33,6 +33,6 @@ def logout_user(request: HttpRequest):
 
     logout(request)
 
-    return redirect("blogApp:list_posts")
+    return redirect("Wte_app:HomePage")
 
     

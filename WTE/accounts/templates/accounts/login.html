@@ -84,11 +84,12 @@
 
     
     <!-- Custom styles for this template -->
-    <div class="container w-50  border mt-5" style="width: 100px;" >
+    <div class="container w-50  border mt-5 border-dark" style="width: 100px;" >
     <link href="signin.css" rel="stylesheet">
   </head>
   
-  <body  class="text-center">
+  <body  class="text-center" style="background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(252,176,69,1) 100%);">
     
 <main class="form-signin w-50 m-auto ">
   <form action="{% url 'accounts:login_user' %}" method="POST">
@@ -96,15 +97,15 @@
     <strong class="">{{ msg }}</strong>
 
     <img class="mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-    <h1 class="h3 mb-3 fw-normal fst-italic">Please sign in</h1>
+    <h1 class="h3 mb-3 fw-normal fst-italic text-danger">Please sign in</h1>
 
     <div class="form-floating ">
-      <input type="email" class="form-control fst-italic" id="floatingInput" placeholder="name@example.com">
-      <label for="floatingInput" class="fst-italic">Email address</label>
+      <input name ="username" type="text" class="form-control fst-italic text-danger" id="floatingInput" placeholder="username">
+      <label for="floatingInput" class="fst-italic text-danger">username</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword" class="fst-italic">Password</label>
+      <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword" class="fst-italic text-danger">Password</label>
     </div>
 
     <div class="checkbox mb-3 fst-italic">

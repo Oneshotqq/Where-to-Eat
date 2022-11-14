@@ -7,25 +7,26 @@
     <title>Bootstrap demo</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
-  <body>
+  <body style="background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);">
     
 
-    <nav class="py-2 bg-light border-bottom" >
-      <div class="container d-flex flex-wrap">
+    <nav class="py-2  border-bottom  border-dark "   >
+      <div class="container d-flex flex-wrap ">
         <ul class="nav me-auto">
-          <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Restaurants</a></li>
+          <li class="nav-item "><a href="#" class="nav-link link-dark px-2 active" aria-current="page">Restaurants</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Cafes</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Top 10</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
         </ul>
         <ul class="nav"  >
-          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Login</a></li>
-          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Sign up</a></li>
+          <li class="nav-item"><a href="{% url 'accounts:login_user' %}" class="nav-link link-dark px-2">Login</a></li>
+          <li class="nav-item"><a href="{% url 'accounts:register_user' %}" class="nav-link link-dark px-2">Sign up</a></li>
         </ul>
       </div>
     </nav>
-    <header class="py-3 mb-4 border-bottom">
+    <header class="py-3 mb-4 border-bottom  border-dark ">
       <div class="container d-flex flex-wrap justify-content-center">
         <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
           <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
@@ -69,7 +70,7 @@
     
       </div>
   </body>
-  <footer class="container-md d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <footer class="container-md d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top border-dark">
     <div class="col-md-4 d-flex align-items-center">
       <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
