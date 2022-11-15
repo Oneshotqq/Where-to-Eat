@@ -88,10 +88,10 @@
     <link href="signin.css" rel="stylesheet">
   </head>
   
-  <body  class="text-center" style="background: rgb(131,58,180);
-  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(252,176,69,1) 100%);">
+  <body  class="text-center" style="background: rgb(251,223,63);
+  background: radial-gradient(circle, rgba(251,223,63,1) 0%, rgba(252,70,70,1) 78%);">
     
-<main class="form-signin w-50 m-auto ">
+<main class="form-signin w-50 m-auto  ">
   <form action="{% url 'accounts:login_user' %}" method="POST">
     {% csrf_token %}
     <strong class="">{{ msg }}</strong>
@@ -100,12 +100,12 @@
     <h1 class="h3 mb-3 fw-normal fst-italic text-danger">Please sign in</h1>
 
     <div class="form-floating ">
-      <input name ="username" type="text" class="form-control fst-italic text-danger" id="floatingInput" placeholder="username">
-      <label for="floatingInput" class="fst-italic text-danger">username</label>
+      <input name ="username" type="text" class="form-control fst-italic text-danger  " id="floatingInput" placeholder="username">
+      <label for="floatingInput" class="fst-italic text-danger ">username</label>
     </div>
     <div class="form-floating">
-      <input name="password" type="password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="floatingPassword" class="fst-italic text-danger">Password</label>
+      <input name="password" type="password" class="form-control " id="floatingPassword" placeholder="Password">
+      <label for="floatingPassword" class="fst-italic text-danger ">Password</label>
     </div>
 
     <div class="checkbox mb-3 fst-italic">

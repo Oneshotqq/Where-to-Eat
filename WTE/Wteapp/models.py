@@ -14,3 +14,10 @@ class restaurant(models.Model):
     menu = models.URLField()
     location = models.URLField()
     rating = models.FloatField()
+
+
+class Comment(models.Model):
+
+    post = models.ForeignKey(restaurant, on_delete = models.CASCADE)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now=True)

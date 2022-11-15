@@ -1,0 +1,36 @@
+{% extends 'Wteapp/base.html' %}
+{% block content %}
+
+<div class="row row-cols-4">
+{% for res in restaurants %}
+
+<div class = "col mt-3">
+<div class="card" style="width: 18rem;">
+    <img src="{{ res.picture.url }}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{ res.name}}</h5>
+      <p class="card-text">{{ res.description}}</p>
+      <a href="#" class="btn btn-danger">Details</a>
+
+
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Edit
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'Wte_app:delete_post' res.id %}">Delete</a></li>
+        </ul>
+      </div>
+    </div>
+
+    </div>
+
+    
+</div>
+  
+
+
+{% endfor %}
+</div>
+
+{% endblock %}
