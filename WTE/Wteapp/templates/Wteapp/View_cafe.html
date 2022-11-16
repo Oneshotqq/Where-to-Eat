@@ -1,41 +1,38 @@
 {% extends 'Wteapp/base.html' %}
 
-{% block title %} {{ restaurant.name }} {% endblock %}
+{% block title %} {{ cafe.name }} {% endblock %}
 
 {% block content %}
 <div class="position-relative">
-    <img src="{{ restaurant.picture.url }}"  class="   z-index-1" style="width:100%; height:500px; object-fit: cover;"  />
+    <img src="{{ cafe.picture.url }}"  class="   z-index-1" style="width:100%; height:500px; object-fit: cover;"  />
 
     <div class="position-absolute top-0 start-0   " >
-       
+        
 
 </div>
 <div class="m-2">
 <ol class="list-group list-group">
-    <li class="list-group-item">Name: {{ restaurant.name}}</li>
-    <li class="list-group-item"> City: {{ restaurant.city}}</li>
-    <li class="list-group-item">Address: {{ restaurant.address}}</li>
-    <li class="list-group-item">Cuisine: {{ restaurant.cuisine}}</li>
-    <li class="list-group-item">Description: {{ restaurant.description}}</li>
-    <li class="list-group-item">Work-time: {{ restaurant.work_time}}</li>
-    <li class="list-group-item"><a href="{{ restaurant.location}}">Location</a></li>
-    <li class="list-group-item"><a href="{{ restaurant.menu}}">Menu</a></li>
-    <li class="list-group-item">Rating: {{ restaurant.rating}}</li>
-  
+    <li class="list-group-item">Name: {{ cafe.name}}</li>
+    <li class="list-group-item">City: {{ cafe.city}}</li>
+    <li class="list-group-item">Address: {{ cafe.address}}</li>
+    <li class="list-group-item">Cuisine: {{ cafe.cuisine}}</li>
+    <li class="list-group-item">Description: {{ cafe.description}}</li>
+    <li class="list-group-item">Work-time: {{ cafe.work_time}}</li>
+    <li class="list-group-item"><a href="{{ cafe.location}}">Location</a></li>
+    <li class="list-group-item"><a href="{{ cafe.menu}}">Menu</a></li>
+    <li class="list-group-item">Rating: {{ cafe.rating}}</li>
 </div>
 
 
 </ol>
-
     </div>
-
     <div class="container border-dark border-top" >
 
         <h2 >Comments</h2>
       
       
         {% for comment in comments %}
-            <div class="border rounded-4 p-3 mt-2 bg-white">
+            <div class=" border rounded-4 p-3 mt-2 bg-white">
               <span>{{ comment.user.username }}</span>
               <hr>
               <p>{{ comment.content }}</p>
@@ -44,7 +41,8 @@
         {% endfor %}
       
         <hr/>
-        <form action="{% url 'Wte_app:comment' restaurant.id %}" method="POST"  enctype="multipart/form-data">
+        
+        <form action="{% url 'Wte_app:comments' cafe.id %}" method="POST" >
             {% csrf_token %}
             <label class="form-label "><b>Comment:</b></label>
             <textarea name="content" class="form-control"></textarea>
@@ -57,12 +55,4 @@
       </div>
     
     
-
-
-
-
-
-
-
-
-{% endblock %}
+    {% endblock %}

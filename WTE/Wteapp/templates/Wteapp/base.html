@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Where-to-eat</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    .carousel-img{
+      border-radius: 10px;
+
+    }
+  </style>
   </head>
+
   <body style="background: rgb(251,223,63);
   background: radial-gradient(circle, rgba(251,223,63,1) 0%, rgba(252,70,70,1) 78%);">
     
@@ -15,7 +22,7 @@
       <div class="container d-flex flex-wrap ">
         <ul class="nav me-auto">
           <li class="nav-item "><a href="{% url 'Wte_app:list_restaurant' %}" class="nav-link link-dark px-2 active" aria-current="page">Restaurants</a></li>
-          <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Cafes</a></li>
+          <li class="nav-item"><a href="{% url 'Wte_app:list_cafe' %}" class="nav-link link-dark px-2">Cafes</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Top 10</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
@@ -40,25 +47,26 @@
           <svg class="bi me-2" width="40" height="32"><use xlink:href=""/></svg>
           <span class="fs-4" >Where-to-eat</span>
         </a>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0" role="search" action="{% url 'Wte_app:list_restaurant' %}">
+          <input type="search" class="form-control" name="search" placeholder="Search..." aria-label="Search">
         </form>
       </div>
     </header>
+    
     {% block content %}
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="z-index: -1;">
         <div class="carousel-inner">
             
           <div class="carousel-item active">
             
-            <img src="{% static 'images/WTE1.jpg'%}" class="d-block w-100" alt="..." >
+            <img src="{% static 'images/WTE1.jpg'%}" class="d-block w-100" alt="..."  >
             <div class="carousel-caption d-none d-md-block text-danger ">
                 <h1>Ernestine Ulmer                </h1>
                 <p>"Life is uncertain. Eat dessert first."</p>
               </div>
             
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item ">
             <img src="{% static 'images/WTE2.jpg'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block text-danger ">
                 <h1>John Gunther</h1>
@@ -76,6 +84,7 @@
       </div>
         </div>
         {% endblock %}
+      
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
     
       </div>
@@ -85,7 +94,7 @@
       <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
         <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>
       </a>
-      <span class="mb-3 mb-md-0 text-muted">© 2022 Company, Inc</span>
+      <span class="mb-3 mb-md-0 text-dark">© 2022 Where-to-eat, Inc</span>
     </div>
 
     <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

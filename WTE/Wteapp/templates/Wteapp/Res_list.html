@@ -1,16 +1,16 @@
 {% extends 'Wteapp/base.html' %}
 {% block content %}
 
-<div class="row row-cols-4">
+<div class="row row-cols-4 ">
 {% for res in restaurants %}
 
-<div class = "col mt-3">
+<div class = "col mt-2 m-5">
 <div class="card" style="width: 18rem;">
     <img src="{{ res.picture.url }}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ res.name}}</h5>
       <p class="card-text">{{ res.description}}</p>
-      <a href="#" class="btn btn-danger">Details</a>
+      <a href="{% url 'Wte_app:restaurant_details' res.id %}" class="btn btn-danger">Details</a>
 
 
       <div class="dropdown">
@@ -27,7 +27,7 @@
 
     
 </div>
-  
+
 
 
 {% endfor %}
