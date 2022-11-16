@@ -1,6 +1,8 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpRequest,HttpResponse
 from .models import restaurant ,Comment ,cafe ,User,CommentCafes
+from django.db.models import Avg
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -52,7 +54,9 @@ def restaurant_details(request : HttpRequest, res_id : int):
     except:
         return render(request , "Wteapp/not_found.html")
 
-    return render(request, "Wteapp/view_Res.html", {"restaurant" : restaurants ,"comments" : comments})
+    average=Comment.objects.filter(post=restaurants).aggregate(Avg('rating'))
+    
+    return render(request, "Wteapp/view_Res.html", {"restaurant" : restaurants ,"comments" : comments ,"averages" : average })
 
 
 
@@ -84,7 +88,9 @@ def cafe_details(request : HttpRequest, cafe_id : int):
     except:
         return render(request , "Wteapp/not_found.html")
 
-    return render(request, "Wteapp/view_cafe.html", {"cafe" : cafes ,"comments" : comments})    
+    average=CommentCafes.objects.filter(post=cafes).aggregate(Avg('rating'))
+
+    return render(request, "Wteapp/view_cafe.html", {"cafe" : cafes ,"comments" : comments , "averages" : average})    
 
 
 

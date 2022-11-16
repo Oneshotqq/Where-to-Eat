@@ -1,11 +1,13 @@
 {% extends 'Wteapp/base.html' %}
+<title>{% block title %} restaurant List {% endblock %} </title>
+
 {% block content %}
 
 <div class="row row-cols-4 ">
 {% for res in restaurants %}
 
 <div class = "col mt-2 m-5">
-<div class="card" style="width: 18rem;">
+<div class="animate__animated animate__fadeInRight card " style="width: 18rem;">
     <img src="{{ res.picture.url }}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">{{ res.name}}</h5>

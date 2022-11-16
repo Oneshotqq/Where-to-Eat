@@ -1,6 +1,6 @@
 {% extends 'Wteapp/base.html' %}
 
-{% block title %} {{ cafe.name }} {% endblock %}
+<title>{% block title %} {{ cafe.name }} {% endblock %} </title>
 
 {% block content %}
 <div class="position-relative">
@@ -10,8 +10,8 @@
         
 
 </div>
-<div class="m-2">
-<ol class="list-group list-group">
+<div class="m-2 ">
+<ol class="list-group list-group animate__animated animate__fadeInRight ">
     <li class="list-group-item">Name: {{ cafe.name}}</li>
     <li class="list-group-item">City: {{ cafe.city}}</li>
     <li class="list-group-item">Address: {{ cafe.address}}</li>
@@ -20,7 +20,7 @@
     <li class="list-group-item">Work-time: {{ cafe.work_time}}</li>
     <li class="list-group-item"><a href="{{ cafe.location}}">Location</a></li>
     <li class="list-group-item"><a href="{{ cafe.menu}}">Menu</a></li>
-    <li class="list-group-item">Rating: {{ cafe.rating}}</li>
+    <li class="list-group-item">Rating: {{ averages.rating__avg}}</li>
 </div>
 
 
