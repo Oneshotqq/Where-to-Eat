@@ -15,7 +15,7 @@ def home_Page (request: HttpRequest) :
 def add_restaurant(request : HttpRequest):
 
     if request.method == "POST":
-        new_restaurant = restaurant(name=request.POST["name"], city = request.POST["city"], address=request.POST["address"], cuisine = request.POST.get('cuisine',False), description =request.POST["description"] ,  work_time =request.POST["work_time"], picture=request.FILES.get('picture',False), location =request.POST["location"], menu=request.POST["menu"] , rating=request.POST["rating"])
+        new_restaurant = restaurant(name=request.POST["name"], city = request.POST["city"], address=request.POST["address"], cuisine = request.POST.get('cuisine','international'), description =request.POST["description"] ,  work_time =request.POST["work_time"], picture=request.FILES.get('picture',False), location =request.POST["location"], menu=request.POST["menu"] , rating=request.POST["rating"])
         new_restaurant.save()
 
     return render(request, "Wteapp/Add_res.html", {"restaurants" : restaurant})
@@ -63,7 +63,7 @@ def restaurant_details(request : HttpRequest, res_id : int):
 def add_cafe(request : HttpRequest):
 
     if request.method == "POST":
-        new_cafe = cafe(name=request.POST["name"], city = request.POST["city"], address=request.POST["address"], cuisine = request.POST.get('cuisine',False), description =request.POST["description"] ,  work_time =request.POST["work_time"], picture=request.FILES.get('picture',False), location =request.POST["location"], menu=request.POST["menu"] , rating=request.POST["rating"])
+        new_cafe = cafe(name=request.POST["name"], city = request.POST["city"], address=request.POST["address"], cuisine = request.POST.get('cuisine','international'), description =request.POST["description"] ,  work_time =request.POST["work_time"], picture=request.FILES.get('picture',False), location =request.POST["location"], menu=request.POST["menu"] , rating=request.POST["rating"])
         new_cafe.save()
 
     return render(request, "Wteapp/add_cafe.html", {"cafes" : cafe})
@@ -90,7 +90,7 @@ def cafe_details(request : HttpRequest, cafe_id : int):
 
     average=CommentCafes.objects.filter(post=cafes).aggregate(Avg('rating'))
 
-    return render(request, "Wteapp/view_cafe.html", {"cafe" : cafes ,"comments" : comments , "averages" : average})    
+    return render(request, "Wteapp/view_cafe.html", {"cafe" : cafes ,"comments" : comments , "Averages" : average})    
 
 
 

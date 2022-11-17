@@ -1,37 +1,41 @@
 {% extends 'Wteapp/base.html' %}
+<title>{% block title %} Cafe List {% endblock %} </title>
+
 {% block content %}
 
 <div class="row row-cols-4 ">
-{% for res in cafes %}
-<title>{% block title %} Cafe List {% endblock %}</title>
-
-<div class = "col mt-2 m-5">
-<div class="animate__animated animate__fadeInRight card" style="width: 18rem;">
-    <img src="{{ res.picture.url }}" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">{{ res.name}}</h5>
-      <p class="card-text">{{ res.description}}</p>
-      <a href="{% url 'Wte_app:cafe_details' res.id %}" class="btn btn-danger">Details</a>
-
-
-      <div class="dropdown">
-        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Edit
-        </button>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="{% url 'Wte_app:delete_cafe' res.id %}">Delete</a></li>
-        </ul>
+  {% for res in cafes %}
+  
+  <div class = "col mt-2 m-5">
+  <div class="animate__animated animate__fadeInRight card " style="width: 18rem;">
+      <img src="{{ res.picture.url }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ res.name}}</h5>
+        <p class="card-text">{{ res.description}}</p>
+        <a href="{% url 'Wte_app:cafe_details' res.id %}" class="btn btn-danger">Details</a>
+  
+        {% if request.user.is_superuser %}
+  
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Edit
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'Wte_app:delete_cafe' res.id %}">Delete</a></li>
+          </ul>
+        </div>
+        {% endif  %}
       </div>
-    </div>
-
-    </div>
-
-    
-</div>
-
-
-
-{% endfor %}
-</div>
-
-{% endblock %}
+  
+      </div>
+  
+      
+  </div>
+  
+  
+  
+  {% endfor %}
+  </div>
+  
+  {% endblock %}
+  

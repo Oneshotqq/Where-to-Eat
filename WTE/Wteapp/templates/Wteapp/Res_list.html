@@ -1,5 +1,5 @@
 {% extends 'Wteapp/base.html' %}
-<title>{% block title %} restaurant List {% endblock %} </title>
+<title>{% block title %} Restaurant List {% endblock %} </title>
 
 {% block content %}
 
@@ -14,6 +14,7 @@
       <p class="card-text">{{ res.description}}</p>
       <a href="{% url 'Wte_app:restaurant_details' res.id %}" class="btn btn-danger">Details</a>
 
+      {% if request.user.is_superuser %}
 
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -23,6 +24,7 @@
           <li><a class="dropdown-item" href="{% url 'Wte_app:delete_post' res.id %}">Delete</a></li>
         </ul>
       </div>
+      {% endif  %}
     </div>
 
     </div>

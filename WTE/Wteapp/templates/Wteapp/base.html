@@ -29,6 +29,10 @@
           <li class="nav-item"><a href="{% url 'Wte_app:list_cafe' %}" class="nav-link link-dark px-2">Cafes</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">FAQs</a></li>
           <li class="nav-item"><a href="#" class="nav-link link-dark px-2">About</a></li>
+          {% if request.user.is_superuser %}
+          <li class="nav-item"><a href="{% url 'Wte_app:add_restaurant' %}" class="nav-link link-dark px-2">Add restaurant</a></li>
+          <li class="nav-item"><a href="{% url 'Wte_app:add_cafe' %}" class="nav-link link-dark px-2">Add Cafe</a></li>
+            {% endif %}
         </ul>
         <ul class="nav"  >
           {% if request.user.is_authenticated %}
@@ -57,10 +61,10 @@
     </header>
     
     {% block content %}
-    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="z-index: -1;">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" style="  width:100%; height:500px;" >
         <div class="carousel-inner">
             
-          <div class="carousel-item active">
+          <div class="carousel-item active " style="width:100%; height:500px; object-fit: cover;">
             
             <img src="{% static 'images/WTE1.jpg'%}" class="d-block w-100" alt="..."  >
             <div class="carousel-caption d-none d-md-block text-danger ">
@@ -69,14 +73,14 @@
               </div>
             
           </div>
-          <div class="carousel-item ">
+          <div class="carousel-item " style="width:100%; height:500px; object-fit: cover;">
             <img src="{% static 'images/WTE2.jpg'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block text-danger ">
                 <h1>John Gunther</h1>
                 <p>"All happiness depends on a leisurely breakfast."</p>
               </div>
           </div>
-          <div class="carousel-item">
+          <div class="carousel-item" style="width:100%; height:500px; object-fit: cover;">
             <img src="{% static 'images/WTE3.jpg'%}" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block text-danger  ">
                 <h1 >Thomas Keller</h1>

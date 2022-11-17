@@ -20,7 +20,7 @@
     <li class="list-group-item">Work-time: {{ cafe.work_time}}</li>
     <li class="list-group-item"><a href="{{ cafe.location}}">Location</a></li>
     <li class="list-group-item"><a href="{{ cafe.menu}}">Menu</a></li>
-    <li class="list-group-item">Rating: {{ averages.rating__avg}}</li>
+    <li class="list-group-item">Rating: {{ Averages.rating__avg}} </li>
 </div>
 
 
@@ -28,12 +28,14 @@
     </div>
     <div class="container border-dark border-top" >
 
-        <h2 >Comments</h2>
+        <h2 >Reviews :</h2>
       
       
         {% for comment in comments %}
             <div class=" border rounded-4 p-3 mt-2 bg-white">
               <span>{{ comment.user.username }}</span>
+              <p>{{comment.created_at}}</p>
+
               <hr>
               <p>{{ comment.content }}</p>
               <p>{{ comment.rating }}</p>
@@ -44,11 +46,11 @@
         
         <form action="{% url 'Wte_app:comments' cafe.id %}" method="POST" >
             {% csrf_token %}
-            <label class="form-label "><b>Comment:</b></label>
+            <label class="form-label "><b>Reviews:</b></label>
             <textarea name="content" class="form-control"></textarea>
             <label for="customRange3" class="form-label"><b> rate the restaurant:</b></label>
             <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3" name="rating" />
-            <input type="submit" class="btn btn-outline-dark mt-3" value="New Comment" />
+            <input type="submit" class="btn btn-outline-dark mt-3" value="New Reviews" />
             
         </form>
       
